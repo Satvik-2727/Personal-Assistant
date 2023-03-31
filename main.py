@@ -1,6 +1,6 @@
 import webbrowser
 import speech_recognition as s_r
-import time
+import random
 import pyttsx3
 import sys
 # print(s_r.Microphone.list_microphone_names())
@@ -9,6 +9,10 @@ def speak(audio):
     print('Computer: ' + audio)
     engine.say(audio)
     engine.runAndWait()
+def toss():
+    coin = ["Heads","Tails"]
+    headortail = random.choice(coin)
+    speak(headortail)
 def takeinputfromuser():
     r = s_r.Recognizer()
     engine = pyttsx3.init('sapi5')
@@ -39,6 +43,8 @@ if __name__ == "__main__":
             speak('okay')
             speak('Bye Sir, have a good day.')
             sys.exit()
+        elif query == "flip a coin":
+            toss()
         else:
             print("Sorry that is not available")
             speak("Sorry that is not available")
