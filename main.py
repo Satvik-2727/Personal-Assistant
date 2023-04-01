@@ -29,22 +29,24 @@ def takeinputfromuser():
     return query
 if __name__ == "__main__":
     while True:
-        query = takeinputfromuser()
-        query = query.lower()
-        if query == "youtube" or query == "open youtube":
-            print("Opening Youtube..")
-            speak("Opening Youtube")
-            webbrowser.open("https://www.youtube.com/")
-        elif query == "monkey type":
-            print("Opening MonkeyType..")
-            speak("Opening MonkeyType...")
-            webbrowser.open("https://monkeytype.com/")
-        elif 'nothing' in query or 'abort' in query or 'stop' in query:
-            speak('okay')
-            speak('Bye Sir, have a good day.')
-            sys.exit()
-        elif query == "flip a coin":
-            toss()
-        else:
-            print("Sorry that is not available")
-            speak("Sorry that is not available")
+        try:
+            query = takeinputfromuser()
+            query = query.lower()
+            if query == "youtube" or query == "open youtube":
+                print("Opening Youtube..")
+                speak("Opening Youtube")
+                webbrowser.open("https://www.youtube.com/")
+            elif query == "monkey type":
+                print("Opening MonkeyType..")
+                speak("Opening MonkeyType...")
+                webbrowser.open("https://monkeytype.com/")
+            elif 'nothing' in query or 'abort' in query or 'stop' in query:
+                speak('okay')
+                speak('Bye Sir, have a good day.')
+                sys.exit()
+            elif query == "flip a coin":
+                toss()
+            else:
+                speak("Sorry that is not available")
+        except:
+            speak("Can you repeat that again")
