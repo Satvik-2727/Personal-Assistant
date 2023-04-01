@@ -43,9 +43,12 @@ if __name__ == "__main__":
             elif 'nothing' in query or 'abort' in query or 'stop' in query:
                 speak('okay')
                 speak('Bye Sir, have a good day.')
-                sys.exit()
+                break
             elif query == "flip a coin":
                 toss()
+            elif query == "hello" or query == "hello jarvis" or query == "hi" or query == "hi jarvis":
+                greetings = ["Namaste Sir","Hello Sir","How are you sir","How is Nikshita?","How may I help you"]
+                speak(random.choice(greetings))
             else:
                 speak("Sorry that is not available")
         except:
