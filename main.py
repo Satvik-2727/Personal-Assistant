@@ -3,6 +3,8 @@ import speech_recognition as s_r
 import random
 import pyttsx3
 import sys
+import json
+import requests
 # print(s_r.Microphone.list_microphone_names())
 engine = pyttsx3.init('sapi5')
 def speak(audio):
@@ -27,6 +29,14 @@ def takeinputfromuser():
         except:
             print("Can you repeat that again please")
     return query
+def weather():
+    city = "Visakhapatnam"
+    url = f"http://api.weatherapi.com/v1/current.json?key=56e64a35c7c346a689055403230803&q={city}"
+    r = requests.get(url) # type(r) = "String"
+    # print(r.text)
+    weatherdictionary = json.loads(r.text) #pronunce loads as lods or load string
+    temp_in_c = weatherdictionary["current"]["temp_c"]
+    speak(f"The temperature in {city} is: {temp_in_c} degrees celcius")
 if __name__ == "__main__":
     while True:
         try:
@@ -46,6 +56,15 @@ if __name__ == "__main__":
                 break
             elif query == "flip a coin":
                 toss()
+            elif query == "jarvis what is today's weather" or query == "what is today's weather" or query == "today's weather" or query == "weather":
+                # city = "Visakhapatnam"
+                # url = f"http://api.weatherapi.com/v1/current.json?key=56e64a35c7c346a689055403230803&q={city}"
+                # r = requests.get(url) # type(r) = "String"
+                # # print(r.text)
+                # weatherdictionary = json.loads(r.text) #pronunce loads as lods or load string
+                # temp_in_c = weatherdictionary["current"]["temp_c"]
+                # speak(f"The temperature in {city} is: {temp_in_c} degrees celcius")
+                weather()
             elif query == "hello" or query == "hello jarvis" or query == "hi" or query == "hi jarvis":
                 greetings = ["Namaste Sir","Hello Sir","How are you sir","How is Nikshita?","How may I help you"]
                 speak(random.choice(greetings))
