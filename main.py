@@ -56,7 +56,7 @@ if __name__ == "__main__":
                 break
             elif query == "flip a coin":
                 toss()
-            elif query == "jarvis what is today's weather" or query == "what is today's weather" or query == "today's weather" or query == "weather":
+            elif query == "jarvis what is today's weather" or query == "what is today's weather" or query == "today's weather" or query == "weather" or query == "today weather" or query == "what is today weather" or query == "jarvis what is today weather":
                 # city = "Visakhapatnam"
                 # url = f"http://api.weatherapi.com/v1/current.json?key=56e64a35c7c346a689055403230803&q={city}"
                 # r = requests.get(url) # type(r) = "String"
