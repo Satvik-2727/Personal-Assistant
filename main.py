@@ -68,6 +68,8 @@ if __name__ == "__main__":
             elif query == "hello" or query == "hello jarvis" or query == "hi" or query == "hi jarvis":
                 greetings = ["Namaste Sir","Hello Sir","How are you sir","How is Nikshita?","How may I help you"]
                 speak(random.choice(greetings))
+            elif query == "i am fine" or query == "i am fine , how about you":
+                speak("Great to listen, Iam also fine. How can I help you today")
             else:
                 speak("Sorry that is not available")
         except:
