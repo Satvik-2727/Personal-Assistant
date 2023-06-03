@@ -69,7 +69,10 @@ if __name__ == "__main__":
                 greetings = ["Namaste Sir","Hello Sir","How are you sir","How is Nikshita?","How may I help you"]
                 speak(random.choice(greetings))
             elif query == "i am fine" or query == "i am fine , how about you":
-                speak("Great to listen, Iam also fine. How can I help you today")
+                speak("Great to listen, Iam also fine. But remember whatever position you are in is not permanent")
+            elif query == "im not fine" or query == "im depressed":
+                speak("I told you one phrase when you were fine , whatever position you are in is not permanent. Just listen to this video")
+                webbrowser.open("https://www.youtube.com/watch?v=CXRxrYBgUIo&ab_channel=Psych2Go")
             else:
                 speak("Sorry that is not available")
         except:
